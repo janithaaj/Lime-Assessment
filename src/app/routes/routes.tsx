@@ -1,8 +1,7 @@
 import type { FC } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from '../../presentation/pages/home/index';
 import BooksPage from '../../presentation/pages/books/index';
-
 
 const AppRoutes: FC = () => {
   return (
@@ -16,4 +15,3 @@ const AppRoutes: FC = () => {
 };
 
 export default AppRoutes;
-
