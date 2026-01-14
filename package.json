@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "server": "json-server --watch db.json --port 3001"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
@@ -21,9 +22,10 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "axios": "^1.13.2",
-    "react-router-dom": "^6.0.0",
+    "json-server": "^1.0.0-beta.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-router-dom": "^6.0.0",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
