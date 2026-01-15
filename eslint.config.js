@@ -27,7 +27,20 @@ export default defineConfig([
           varsIgnorePattern: '^_',
         },
       ],
-      'no-unused-vars': 'off', // Turn off base rule as it conflicts with @typescript-eslint version
+      '@typescript-eslint/no-explicit-any': 'warn',
+      'no-unused-vars': 'off',
+      'no-console': ['error', { allow: ['warn', 'error'] }],
+      'no-debugger': 'error',
+
+      // React Rules
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+
+      // Code Quality
+      eqeqeq: ['error', 'always'],
+      'no-var': 'error',
+      'prefer-const': 'error',
+      curly: ['error', 'all'],
     },
   },
 ]);
