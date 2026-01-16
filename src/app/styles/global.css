@@ -95,38 +95,51 @@
 
 @theme {
   --font-family-sans: 'Poppins';
-  
-  /* Primary Colors (Blue) */
-  --color-primary-50: #f0f9ff;
+  --font-family-fontBody: 'Poppins';
 
-  
+  /* Gradient Colors */
+  --color-gradient-start: #e5f9ff;
+  --color-gradient-middle: #ffebf1;
+  --color-gradient-end: #d6f5ff;
+
+  /* Container Configuration */
+  --container-center: true;
+  --container-padding: 20px;
+
+  /* Primary Colors */
+  --color-primary-50: #f05a2b;
+  --color-primary-100: #fd4f18;
+
   /* Secondary Colors (Purple) */
   --color-secondary-50: #faf5ff;
-  
-  
+
+  /* Navy Colors */
+  --color-navy-50: #172136;
+
   /* Success Colors (Green) */
   --color-success-50: #f0fdf4;
-  
-  
+
   /* Error Colors (Red) */
   --color-error-50: #fef2f2;
-  
-  
+
   /* Warning Colors (Yellow) */
   --color-warning-50: #fffbeb;
-  
-  
+
   /* Info Colors (Cyan) */
   --color-info-50: #ecfeff;
-  
-  
+
   /* Neutral Colors (Gray) */
   --color-neutral-50: #fafafa;
-  
-  
+
   /* Accent Colors (Orange) */
   --color-accent-50: #fff7ed;
-  
+
+  /* Breakpoints */
+  --breakpoint-xxxxxs: 0rem;
+  --breakpoint-xxxxs: 12rem;
+  --breakpoint-xxxs: 16rem;
+  --breakpoint-xxs: 20rem;
+  --breakpoint-xs: 30rem;
 }
 
 /* Base Styles */
@@ -147,4 +160,11 @@ body {
   line-height: 1.5;
 }
 
-
+.hero-section-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-gradient-start),
+    var(--color-gradient-middle),
+    var(--color-gradient-end)
+  );
+}
