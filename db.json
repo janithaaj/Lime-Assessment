@@ -1,84 +1,76 @@
 {
   "books": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Clean Code",
       "author": "Robert C. Martin",
       "category": "Software Engineering",
       "rating": 5,
-      "coverUrl": "https://picsum.photos/seed/cleancode/200/300"
+      "coverUrl": "https://i.postimg.cc/13dR8Bnp/product-item2.png"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "The Pragmatic Programmer",
       "author": "Andrew Hunt",
       "category": "Software Engineering",
       "rating": 5,
-      "coverUrl": "https://picsum.photos/seed/pragmatic/200/300"
+      "coverUrl": "https://i.postimg.cc/6q6xj42M/product-item3.png"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Refactoring",
       "author": "Martin Fowler",
       "category": "Software Engineering",
       "rating": 4,
-      "coverUrl": "https://picsum.photos/seed/refactoring/200/300"
+      "coverUrl": "https://i.postimg.cc/TY4v0wR7/product-item5.png"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Design Patterns",
       "author": "Erich Gamma",
       "category": "Software Engineering",
       "rating": 5,
-      "coverUrl": "https://picsum.photos/seed/designpatterns/200/300"
+      "coverUrl": "https://i.postimg.cc/jjzVR4zq/product-large-1.png"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "You Don’t Know JS",
       "author": "Kyle Simpson",
       "category": "JavaScript",
       "rating": 4,
-      "coverUrl": "https://picsum.photos/seed/ydkjs/200/300"
+      "coverUrl": "https://i.postimg.cc/kGgLFrLg/product-large-2.png"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "JavaScript: The Good Parts",
       "author": "Douglas Crockford",
       "category": "JavaScript",
       "rating": 4,
-      "coverUrl": "https://picsum.photos/seed/js-good-parts/200/300"
+      "coverUrl": "https://i.postimg.cc/N08n3fcY/product-large-3.png"
     },
     {
-      "id": 7,
-      "title": "Introduction to Algorithms",
-      "author": "Thomas H. Cormen",
-      "category": "Computer Science",
-      "rating": 5,
-      "coverUrl": "https://picsum.photos/seed/algorithms/200/300"
-    },
-    {
-      "id": 8,
       "title": "Cracking the Coding Interview",
       "author": "Gayle Laakmann McDowell",
       "category": "Interview Preparation",
       "rating": 5,
-      "coverUrl": "https://picsum.photos/seed/ctci/200/300"
+      "coverUrl": "https://i.postimg.cc/6q6xj42M/product-item3.png",
+      "id": "8"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Effective TypeScript",
       "author": "Dan Vanderkam",
       "category": "TypeScript",
       "rating": 4,
-      "coverUrl": "https://picsum.photos/seed/effective-ts/200/300"
+      "coverUrl": "https://i.postimg.cc/TY4v0wR7/product-item5.png"
     },
     {
-      "id": 10,
-      "title": "Building Microservices",
-      "author": "Sam Newman",
-      "category": "Software Architecture",
-      "rating": 4,
-      "coverUrl": "https://picsum.photos/seed/microservices/200/300"
+      "id": "4fa4",
+      "title": "Clean Code Part 02",
+      "author": "Gayle Laakmann McDowell",
+      "category": "Software Engineering",
+      "rating": 2,
+      "coverUrl": "https://i.postimg.cc/13dR8Bnp/product-item2.png"
     }
   ]
 }
