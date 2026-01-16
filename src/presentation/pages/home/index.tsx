@@ -1,83 +1,140 @@
 import type { FC } from 'react';
-import { Link } from 'react-router-dom';
-import { useBooks } from '../../books/hooks/useBooks';
-import type { Book } from '../../../domain/books/book';
+import { useNavigate } from 'react-router-dom';
+
+import { useBooks } from '../../hooks/useBooks';
+
+import { motion } from 'framer-motion';
+import bookStack from '../../../assets/images/book-stack.png';
+import heroBook from '../../../assets/images/hero-book.png';
+import PrimaryButton from '../../components/common/button/primary-button';
+import MainLayout from '../../components/layout/main-layout';
+import { Book } from '../../../domain/books/book';
 
 const HomePage: FC = () => {
+  const navigate = useNavigate();
   const { books, isLoading, isError, error } = useBooks();
+
+  const handleShopCollection = () => {
+    navigate('/books');
+  };
+
+  const handleViewAll = () => {
+    navigate('/books');
+  };
+
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-lg text-gray-600">Loading...</div>
+      </div>
+    );
   }
+
   if (isError) {
-    return <div>Error: {error?.message}</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-lg text-red-600">Error: {error?.message}</div>
+      </div>
+    );
   }
-  if (!books) {
-    return <div>No books found</div>;
-  }
+
+  const bestSellingBooks = books?.slice(0, 6) || [];
 
   return (
-    <main className="min-h-screen bg-neutral-50 flex flex-col">
-      <header className="border-b border-neutral-200 bg-white">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
-          <span className="text-lg font-semibold text-primary-600">
-            Lime Books
-          </span>
-          <nav className="flex items-center gap-4">
-            <Link
-              to="/"
-              className="text-sm font-medium text-neutral-800 hover:text-primary-600 transition-colors"
-              aria-label="Go to home page"
+    <MainLayout>
+      <div className="hero-section-gradient py-[150px] bg-secondary-50 relative">
+        <div className="flex container mx-auto flex-row justify-end items-center">
+          <div className="sm:flex-1 md:flex-[.4] flex-row">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="font-bold text-gray-900 font-fontBody text-[40px] leading-[56px]"
             >
-              Home
-            </Link>
-            <Link
-              to="/books"
-              className="text-sm font-medium text-neutral-800 hover:text-primary-600 transition-colors"
-              aria-label="Go to books page"
+              The Fine Print Book Collection
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-base text-gray-600 font-fontBody text-[16px] leading-[24px] mb-[25px]"
             >
-              Books
-            </Link>
-          </nav>
+              Best Offer Save 35%. Grab It Now!!
+            </motion.p>
+            <PrimaryButton
+              btnText="Shop Collection"
+              onClick={handleShopCollection}
+            />
+          </div>
+          <div className="sm:flex-1 md:flex-[.6] flex gap-[60px] items-center justify-end">
+            <motion.img
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              src={bookStack}
+              alt="Book Stack"
+              className=" object-cover w-64 lg:w-80 book-shadow rounded-lg"
+            />
+            <motion.img
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              src={heroBook}
+              alt="Hero Book"
+              className=" object-cover w-64 lg:w-80 book-shadow rounded-lg"
+            />
+          </div>
         </div>
-      </header>
+      </div>
 
-      <section className="flex flex-1 items-center justify-center px-4">
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <h1 className="mb-4 text-3xl font-bold text-neutral-900">
-            Welcome to <span className="text-primary-600">Lime Books</span>
-          </h1>
-          <p className="mb-6 text-sm text-neutral-600">
-            Browse and manage your book collection.
-          </p>
-
-          {books.length > 0 &&
-            books.map((item: Book, index: number) => {
-              return (
-                <div className="flex flex-col gap-2" key={index}>
-                  <h2 className="text-lg font-semibold text-neutral-900">
-                    {item.title}
-                  </h2>
-                  <p className="text-sm text-neutral-600">{item.author}</p>
-                  <p className="text-sm text-neutral-600">{item.category}</p>
-                  <p className="text-sm text-neutral-600">{item.rating}</p>
+      <div className="info-section py-[100px]">
+        <div className="flex container mx-auto flex-col">
+          <div className="flex-[.4] flex-col">
+            <div className="flex flex-col gap-[20px]">
+              <h2 className="font-bold text-gray-900 font-fontBody text-[40px] leading-[56px]">
+                Best Selling Books
+              </h2>
+              <p className="text-base text-gray-600 font-fontBody text-[16px] leading-[24px] mb-[25px]">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Quisquam, quos.
+              </p>
+            </div>
+            <div className="flex flex-row gap-[20px]">
+              <PrimaryButton btnText="View All" onClick={handleViewAll} />
+            </div>
+          </div>
+          <div className="flex flex-row gap-[20px] pt-[50px]">
+            <div className="flex flex-row gap-[20px]">
+              {bestSellingBooks.map((book: Book) => (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  key={book.id}
+                  className="flex flex-col items-center justify-center"
+                >
                   <img
-                    src={item.coverUrl}
-                    alt={item.title}
-                    className="w-24 h-24 object-cover"
+                    src={book.coverUrl}
+                    alt={book.title}
+                    className="w-[200px] h-[200px] object-cover rounded-[20px]"
                   />
-                </div>
-              );
-            })}
-          <Link
-            to="/books"
-            className="rounded-md bg-primary-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
-            aria-label="View books"
-          >
-            View Books
-          </Link>
+                  <h3 className="text-base text-gray-900 font-fontBody text-[20px] leading-[28px]">
+                    {book.title}
+                  </h3>
+                  <p className="text-base text-gray-600 font-fontBody text-[16px] leading-[24px]">
+                    {book.author}
+                  </p>
+                  <p className="text-base text-gray-600 font-fontBody text-[16px] leading-[24px]">
+                    ${book.price}
+                  </p>
+                  <PrimaryButton btnText="Add to Cart" onClick={() => {}} />
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </MainLayout>
   );
 };
 
